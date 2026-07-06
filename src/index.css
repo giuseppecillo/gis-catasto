@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background-color: #080f0c;
+    color: white;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0b1612;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e3a28;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2d5a3a;
+  }
+}
+
+@layer components {
+  .input-field {
+    @apply w-full bg-[#0a1410] border border-[#1e3a28] text-white text-sm rounded-lg px-3 py-2
+           placeholder-gray-600 focus:outline-none focus:border-[#4ade80]/50 focus:ring-1 focus:ring-[#4ade80]/30
+           transition-colors;
+  }
+  .input-field option {
+    background: #0a1410;
+  }
+}
+
+/* Leaflet z-index fix so modals sit above the map */
+.leaflet-pane,
+.leaflet-tile,
+.leaflet-marker-icon,
+.leaflet-marker-shadow,
+.leaflet-tile-container,
+.leaflet-map-pane svg,
+.leaflet-map-pane canvas,
+.leaflet-zoom-box,
+.leaflet-image-layer,
+.leaflet-layer {
+  z-index: 1 !important;
+}
+.leaflet-control {
+  z-index: 2 !important;
+}
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 3 !important;
+}
